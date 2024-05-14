@@ -21,6 +21,7 @@ exports.LoginPage = class LoginPage {
         await this.email.first().fill(username);
         await this.page.locator(this.password).first().fill(password);
         await this.page.locator(this.signin).click();
+        this.page.waitForTimeout(1000);
         expect(await this.page.getByRole('heading', { name: testData.details.tigersheetLabel })).toBeVisible();
     }
 
